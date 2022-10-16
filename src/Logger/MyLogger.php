@@ -12,7 +12,7 @@ class MyLogger
 
     public function error(string $message)
     {
-        $formatedMessage = 'Error: ' . $message . "\r\n";
+        $formatedMessage = 'Error: ' . $message . "\n";
 
         if ($this->type === 'console') {
             echo $formatedMessage;
@@ -25,7 +25,7 @@ class MyLogger
 
     public function warning(string $message)
     {
-        $formatedMessage = 'Warning: ' . $message . "\r\n";
+        $formatedMessage = 'Warning: ' . $message . "\n";
 
         if ($this->type === 'console') {
             echo $formatedMessage;

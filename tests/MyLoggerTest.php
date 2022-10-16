@@ -26,7 +26,7 @@ class MyLoggerTest extends PHPUnit\Framework\TestCase
     {
         $message = 'Olá mundo via logger';
         
-        $this->expectOutputString("Error: Olá mundo via logger\r\n");
+        $this->expectOutputString("Error: Olá mundo via logger\n");
 
         $this->consoleLog->error($message);
     }
@@ -35,7 +35,7 @@ class MyLoggerTest extends PHPUnit\Framework\TestCase
     {
         $message = 'Olá mundo via logger';
         
-        $this->expectOutputString("Warning: Olá mundo via logger\r\n");
+        $this->expectOutputString("Warning: Olá mundo via logger\n");
 
         $this->consoleLog->warning($message);
     }
