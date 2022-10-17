@@ -2,37 +2,23 @@
 
 namespace DifferDev\Logger;
 
+use DifferDev\Logger\Strategy\WriterStraregy;
+
 class MyLogger
 {
     public function __construct(
-        protected string $type
+        protected WriterStraregy $writer
     ) {
-        # code...
+        #code...
     }
 
-    public function error(string $message)
+    public function error(string $message): void
     {
-        $formatedMessage = 'Error: ' . $message . "\n";
-
-        if ($this->type === 'console') {
-            echo $formatedMessage;
-        }
-
-        if ($this->type === 'file') {
-            file_put_contents('logs.txt', $formatedMessage);
-        }
+        $this->writer->error($message);
     }
 
-    public function warning(string $message)
+    public function warning(string $message): void
     {
-        $formatedMessage = 'Warning: ' . $message . "\n";
-
-        if ($this->type === 'console') {
-            echo $formatedMessage;
-        }
-
-        if ($this->type === 'file') {
-            file_put_contents('logs.txt', $formatedMessage);
-        }
+        $this->writer->warning($message);
     }
 }

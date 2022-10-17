@@ -1,6 +1,9 @@
 <?php
 
 use DifferDev\Logger\MyLogger;
+use DifferDev\Logger\Strategy\WriterStraregy;
+use DifferDev\Logger\Writer\ConsoleWriter;
+use DifferDev\Logger\Writer\FileWriter;
 
 class MyLoggerTest extends PHPUnit\Framework\TestCase
 {
@@ -11,8 +14,8 @@ class MyLoggerTest extends PHPUnit\Framework\TestCase
     public function setUp(): void
     {
         chdir(__DIR__);
-        $this->consoleLog = new MyLogger('console');
-        $this->fileLog = new MyLogger('file');
+        $this->consoleLog = new MyLogger(new WriterStraregy(new ConsoleWriter()));
+        $this->fileLog = new MyLogger(new WriterStraregy(new FileWriter('.', 'logs.txt')));
     }
 
     public function tearDown(): void
